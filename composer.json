@@ -1,0 +1,49 @@
+{
+  "name": "goparkk/model-generator",
+  "description": "Reliese Components for Laravel Framework code generation.",
+  "keywords": [
+    "reliese",
+    "laravel"
+  ],
+  "type": "library",
+  "authors": [
+    {
+      "name": "Sumit Pal",
+      "email": "sumit@parkobot.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3|^8.0",
+    "doctrine/dbal": ">=2.5",
+    "illuminate/support": ">=5.1",
+    "illuminate/database": ">=5.1",
+    "illuminate/contracts": ">=5.1",
+    "illuminate/filesystem": ">=5.1",
+    "illuminate/console": ">=5.1"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": ">=1.4",
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "psr-4": {
+      "Goparkk\\Generator\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Goparkk\\Generator\\Coders\\CodersServiceProvider"
+      ]
+    }
+  }
+}
