@@ -8,7 +8,7 @@
 namespace Goparkk\Generator\Coders\Model;
 
 use Illuminate\Support\Arr;
-use Reliese\Meta\Blueprint;
+use Goparkk\Generator\Meta\Blueprint;
 
 class Config
 {
@@ -28,7 +28,7 @@ class Config
     }
 
     /**
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      * @param string $key
      * @param mixed $default
      *

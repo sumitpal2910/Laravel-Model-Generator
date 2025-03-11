@@ -7,7 +7,7 @@
 
 namespace Goparkk\Generator\Coders\Model;
 
-use Reliese\Meta\Blueprint;
+use Goparkk\Generator\Meta\Blueprint;
 
 class Mutator
 {
@@ -40,7 +40,7 @@ class Mutator
 
     /**
      * @param string $column
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      *
      * @return mixed
      */

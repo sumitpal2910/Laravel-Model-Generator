@@ -2,7 +2,7 @@
 
 namespace Goparkk\Generator\Coders;
 
-use Reliese\Support\Classify;
+use Goparkk\Generator\Support\Classify;
 use Goparkk\Generator\Coders\Model\Config;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;

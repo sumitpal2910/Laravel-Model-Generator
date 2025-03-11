@@ -7,7 +7,7 @@
 
 namespace Goparkk\Generator\Coders\Model\Relations;
 
-use Reliese\Support\Dumper;
+use Goparkk\Generator\Support\Dumper;
 use Illuminate\Support\Fluent;
 use Goparkk\Generator\Coders\Model\Model;
 use Goparkk\Generator\Coders\Model\Relation;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Reliese\Meta\Postgres;
+namespace Goparkk\Generator\Meta\Postgres;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
-use Reliese\Meta\Blueprint;
+use Goparkk\Generator\Meta\Blueprint;
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Connection;
 
@@ -12,7 +12,7 @@ use Illuminate\Database\Connection;
  * Created by rwdim from cristians MySql original.
  * Date: 25/08/18 04:13 PM.
  */
-class Schema implements \Reliese\Meta\Schema
+class Schema implements \Goparkk\Generator\Meta\Schema
 {
     /**
      * @var string
@@ -30,7 +30,7 @@ class Schema implements \Reliese\Meta\Schema
     protected $loaded = false;
 
     /**
-     * @var \Reliese\Meta\Blueprint[]
+     * @var \Goparkk\Generator\Meta\Blueprint[]
      */
     protected $tables = [];
 
@@ -100,7 +100,7 @@ class Schema implements \Reliese\Meta\Schema
     }
 
     /**
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      */
     protected function fillColumns(Blueprint $blueprint)
     {
@@ -127,7 +127,7 @@ class Schema implements \Reliese\Meta\Schema
     }
 
     /**
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      */
     protected function fillConstraints(Blueprint $blueprint)
     {
@@ -172,7 +172,7 @@ class Schema implements \Reliese\Meta\Schema
 
     /**
      * @param array $relations
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      * @todo: Support named primary keys
      */
     protected function fillPrimaryKey($relations, Blueprint $blueprint)
@@ -195,7 +195,7 @@ class Schema implements \Reliese\Meta\Schema
 
     /**
      * @param array $indexes
-     * @param \Reliese\Meta\Blueprint $blueprintx
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprintx
      */
     protected function fillIndexes($indexes, Blueprint $blueprint)
     {
@@ -216,7 +216,7 @@ class Schema implements \Reliese\Meta\Schema
 
     /**
      * @param array $relations
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      * @todo: Support named foreign keys
      */
     protected function fillRelations($relations, Blueprint $blueprint)
@@ -312,7 +312,7 @@ class Schema implements \Reliese\Meta\Schema
     }
 
     /**
-     * @return \Reliese\Meta\Blueprint[]
+     * @return \Goparkk\Generator\Meta\Blueprint[]
      */
     public function tables()
     {
@@ -322,7 +322,7 @@ class Schema implements \Reliese\Meta\Schema
     /**
      * @param string $table
      *
-     * @return \Reliese\Meta\Blueprint
+     * @return \Goparkk\Generator\Meta\Blueprint
      */
     public function table($table)
     {
@@ -342,7 +342,7 @@ class Schema implements \Reliese\Meta\Schema
     }
 
     /**
-     * @param \Reliese\Meta\Blueprint $table
+     * @param \Goparkk\Generator\Meta\Blueprint $table
      *
      * @return array
      */

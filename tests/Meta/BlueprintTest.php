@@ -1,6 +1,6 @@
 <?php
 
-use Reliese\Meta\Blueprint;
+use Goparkk\Generator\Meta\Blueprint;
 
 /**
  * Created by Cristian.

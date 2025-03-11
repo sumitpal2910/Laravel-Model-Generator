@@ -10,9 +10,9 @@ namespace Goparkk\Generator\Coders\Model;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
-use Reliese\Meta\Blueprint;
-use Reliese\Meta\SchemaManager;
-use Reliese\Support\Classify;
+use Goparkk\Generator\Meta\Blueprint;
+use Goparkk\Generator\Meta\SchemaManager;
+use Goparkk\Generator\Support\Classify;
 
 class Factory
 {
@@ -22,7 +22,7 @@ class Factory
     private $db;
 
     /**
-     * @var \Reliese\Meta\SchemaManager
+     * @var \Goparkk\Generator\Meta\SchemaManager
      */
     protected $schemas = [];
 
@@ -32,7 +32,7 @@ class Factory
     protected $files;
 
     /**
-     * @var \Reliese\Support\Classify
+     * @var \Goparkk\Generator\Support\Classify
      */
     protected $class;
 
@@ -56,7 +56,7 @@ class Factory
      *
      * @param \Illuminate\Database\DatabaseManager $db
      * @param \Illuminate\Filesystem\Filesystem $files
-     * @param \Reliese\Support\Classify $writer
+     * @param \Goparkk\Generator\Support\Classify $writer
      * @param \Goparkk\Generator\Coders\Model\Config $config
      */
     public function __construct(DatabaseManager $db, Filesystem $files, Classify $writer, Config $config)
@@ -120,7 +120,7 @@ class Factory
     }
 
     /**
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      *
      * @return bool
      */
@@ -136,7 +136,7 @@ class Factory
     }
 
     /**
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      *
      * @return bool
      */
@@ -193,7 +193,7 @@ class Factory
     /**
      * @param string $schema
      *
-     * @return \Reliese\Meta\Schema
+     * @return \Goparkk\Generator\Meta\Schema
      */
     public function makeSchema($schema)
     {
@@ -597,7 +597,7 @@ class Factory
     }
 
     /**
-     * @param \Reliese\Meta\Blueprint|null $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint|null $blueprint
      * @param string $key
      * @param mixed $default
      *

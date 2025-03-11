@@ -4,7 +4,7 @@ use Illuminate\Support\Fluent;
 use Goparkk\Generator\Coders\Model\Factory;
 use Goparkk\Generator\Coders\Model\Model;
 use Goparkk\Generator\Coders\Model\Relations\BelongsTo;
-use Reliese\Meta\Blueprint;
+use Goparkk\Generator\Meta\Blueprint;
 
 class ModelTest extends TestCase
 {
@@ -58,7 +58,7 @@ class ModelTest extends TestCase
             new Factory(
                 \Mockery::mock(\Illuminate\Database\DatabaseManager::class),
                 \Mockery::mock(Illuminate\Filesystem\Filesystem::class),
-                \Mockery::mock(\Reliese\Support\Classify::class),
+                \Mockery::mock(\Goparkk\Generator\Support\Classify::class),
                 new \Goparkk\Generator\Coders\Model\Config()
             )
         );
@@ -95,7 +95,7 @@ class ModelTest extends TestCase
             new Factory(
                 \Mockery::mock(\Illuminate\Database\DatabaseManager::class),
                 \Mockery::mock(Illuminate\Filesystem\Filesystem::class),
-                \Mockery::mock(\Reliese\Support\Classify::class),
+                \Mockery::mock(\Goparkk\Generator\Support\Classify::class),
                 new \Goparkk\Generator\Coders\Model\Config()
             )
         );

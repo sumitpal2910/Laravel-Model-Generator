@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Goparkk\Generator\Coders\Model\Config;
-use Reliese\Meta\Blueprint;
+use Goparkk\Generator\Meta\Blueprint;
 
 class ConfigTest extends TestCase
 {

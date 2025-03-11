@@ -14,9 +14,9 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\SQLiteConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\ConnectionInterface;
-use Reliese\Meta\MySql\Schema as MySqlSchema;
-use Reliese\Meta\Sqlite\Schema as SqliteSchema;
-use Reliese\Meta\Postgres\Schema as PostgresSchema;
+use Goparkk\Generator\Meta\MySql\Schema as MySqlSchema;
+use Goparkk\Generator\Meta\Sqlite\Schema as SqliteSchema;
+use Goparkk\Generator\Meta\Postgres\Schema as PostgresSchema;
 
 class SchemaManager implements IteratorAggregate
 {
@@ -37,7 +37,7 @@ class SchemaManager implements IteratorAggregate
     private $connection;
 
     /**
-     * @var \Reliese\Meta\Schema[]
+     * @var \Goparkk\Generator\Meta\Schema[]
      */
     protected $schemas = [];
 
@@ -72,7 +72,7 @@ class SchemaManager implements IteratorAggregate
     /**
      * @param string $schema
      *
-     * @return \Reliese\Meta\Schema
+     * @return \Goparkk\Generator\Meta\Schema
      */
     public function make($schema)
     {
@@ -86,7 +86,7 @@ class SchemaManager implements IteratorAggregate
     /**
      * @param string $schema
      *
-     * @return \Reliese\Meta\Schema
+     * @return \Goparkk\Generator\Meta\Schema
      */
     protected function makeMapper($schema)
     {

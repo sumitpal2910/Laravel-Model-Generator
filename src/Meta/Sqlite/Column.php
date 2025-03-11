@@ -5,11 +5,11 @@
  * Date: 18/09/16 08:36 PM.
  */
 
-namespace Reliese\Meta\Sqlite;
+namespace Goparkk\Generator\Meta\Sqlite;
 
 use Illuminate\Support\Fluent;
 
-class Column implements \Reliese\Meta\Column
+class Column implements \Goparkk\Generator\Meta\Column
 {
     /**
      * @var \Doctrine\DBAL\Schema\Column

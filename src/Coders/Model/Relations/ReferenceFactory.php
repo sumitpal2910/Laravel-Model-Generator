@@ -111,7 +111,7 @@ class ReferenceFactory
     }
 
     /**
-     * @return \Reliese\Meta\Blueprint
+     * @return \Goparkk\Generator\Meta\Blueprint
      */
     protected function getRelatedBlueprint()
     {

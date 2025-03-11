@@ -24,7 +24,7 @@ interface Schema
     public function schema();
 
     /**
-     * @return \Reliese\Meta\Blueprint[]
+     * @return \Goparkk\Generator\Meta\Blueprint[]
      */
     public function tables();
 
@@ -38,12 +38,12 @@ interface Schema
     /**
      * @param string $table
      *
-     * @return \Reliese\Meta\Blueprint
+     * @return \Goparkk\Generator\Meta\Blueprint
      */
     public function table($table);
 
     /**
-     * @param \Reliese\Meta\Blueprint $table
+     * @param \Goparkk\Generator\Meta\Blueprint $table
      *
      * @return array
      */

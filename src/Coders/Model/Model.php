@@ -8,7 +8,7 @@
 namespace Goparkk\Generator\Coders\Model;
 
 use Illuminate\Support\Str;
-use Reliese\Meta\Blueprint;
+use Goparkk\Generator\Meta\Blueprint;
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Goparkk\Generator\Coders\Model\Relations\BelongsTo;
@@ -18,7 +18,7 @@ use Goparkk\Generator\Coders\Model\Relations\ReferenceFactory;
 class Model
 {
     /**
-     * @var \Reliese\Meta\Blueprint
+     * @var \Goparkk\Generator\Meta\Blueprint
      */
     private $blueprint;
 
@@ -38,7 +38,7 @@ class Model
     protected $relations = [];
 
     /**
-     * @var \Reliese\Meta\Blueprint[]
+     * @var \Goparkk\Generator\Meta\Blueprint[]
      */
     protected $references = [];
 
@@ -165,7 +165,7 @@ class Model
     /**
      * ModelClass constructor.
      *
-     * @param \Reliese\Meta\Blueprint $blueprint
+     * @param \Goparkk\Generator\Meta\Blueprint $blueprint
      * @param \Goparkk\Generator\Coders\Model\Factory $factory
      * @param \Goparkk\Generator\Coders\Model\Mutator[] $mutators
      * @param bool $loadRelations
@@ -441,7 +441,7 @@ class Model
     }
 
     /**
-     * @param \Reliese\Meta\Blueprint[] $references
+     * @param \Goparkk\Generator\Meta\Blueprint[] $references
      */
     public function withReferences($references)
     {
@@ -1161,7 +1161,7 @@ class Model
     }
 
     /**
-     * @return \Reliese\Meta\Blueprint
+     * @return \Goparkk\Generator\Meta\Blueprint
      */
     public function getBlueprint()
     {
