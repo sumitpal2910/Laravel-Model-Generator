@@ -140,8 +140,11 @@ class BelongsTo implements Relation
      */
     protected function needsForeignKey()
     {
-        $defaultForeignKey = $this->related->getRecordName().'_id';
+        if ($this->parent->config('relation.options.show_key')) {
+            return true;
+        }
 
+        $defaultForeignKey = $this->related->getRecordName() . '_id';
         return $defaultForeignKey != $this->foreignKey() || $this->needsOtherKey();
     }
 
@@ -170,6 +173,10 @@ class BelongsTo implements Relation
      */
     protected function needsOtherKey()
     {
+        if ($this->parent->config('relation.options.show_key')) {
+            return true;
+        }
+
         $defaultOtherKey = $this->related->getPrimaryKey();
 
         return $defaultOtherKey != $this->otherKey();

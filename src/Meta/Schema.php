@@ -5,7 +5,7 @@
  * Date: 02/10/16 07:56 PM.
  */
 
-namespace Reliese\Meta;
+namespace Goparkk\Generator\Meta;
 
 /**
  * Created by Cristian.

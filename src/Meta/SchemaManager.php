@@ -5,7 +5,7 @@
  * Date: 02/10/16 07:37 PM.
  */
 
-namespace Reliese\Meta;
+namespace Goparkk\Generator\Meta;
 
 use ArrayIterator;
 use RuntimeException;
