@@ -7,6 +7,7 @@
 
 namespace Goparkk\Generator\Coders\Model\Relations;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Goparkk\Generator\Support\Dumper;
 use Illuminate\Support\Fluent;
@@ -49,25 +50,35 @@ class BelongsTo implements Relation
      */
     public function name()
     {
-        switch ($this->parent->getRelationNameStrategy()) {
-            case 'foreign_key':
-                $relationName = RelationHelper::stripSuffixFromForeignKey(
-                    $this->parent->usesSnakeAttributes(),
-                    $this->otherKey(),
-                    $this->foreignKey()
-                );
-                break;
-            default:
-            case 'related':
-                $relationName = $this->related->getClassName();
-                break;
-        }
+//        switch ($this->parent->getRelationNameStrategy()) {
+//            case 'foreign_key':
+//            case 'foreign_key_field_name':
+//                Log::debug("otherKey: " . $this->otherKey() . " foreignKey: " . $this->foreignKey());
+//                $relationName = RelationHelper::stripSuffixFromForeignKey(
+//                    $this->parent->usesSnakeAttributes(),
+//                    $this->otherKey(),
+//                    $this->foreignKey()
+//                );
+//
+//                Log::debug("relationName: $relationName");
+//                break;
+//            default:
+//            case 'related':
+//                $relationName = $this->related->getClassName();
+//                break;
+//        }
+//
+//        if ($this->parent->usesSnakeAttributes()) {
+//            return Str::snake($relationName);
+//        }
+//
+//        return Str::camel($relationName);
 
         if ($this->parent->usesSnakeAttributes()) {
-            return Str::snake($relationName);
+            return Str::snake($this->related->getClassName());
         }
 
-        return Str::camel($relationName);
+        return Str::camel($this->related->getClassName());
     }
 
     /**
@@ -77,20 +88,20 @@ class BelongsTo implements Relation
     {
         $body = 'return $this->belongsTo(';
 
-        $body .= $this->related->getQualifiedUserClassName().'::class';
+        $body .= $this->related->getQualifiedUserClassName() . '::class';
 
         if ($this->needsForeignKey()) {
             $foreignKey = $this->parent->usesPropertyConstants()
-                ? $this->parent->getQualifiedUserClassName().'::'.strtoupper($this->foreignKey())
+                ? $this->parent->getQualifiedUserClassName() . '::' . strtoupper($this->foreignKey())
                 : $this->foreignKey();
-            $body .= ', '.Dumper::export($foreignKey);
+            $body .= ', ' . Dumper::export($foreignKey);
         }
 
         if ($this->needsOtherKey()) {
             $otherKey = $this->related->usesPropertyConstants()
-                ? $this->related->getQualifiedUserClassName().'::'.strtoupper($this->otherKey())
+                ? $this->related->getQualifiedUserClassName() . '::' . strtoupper($this->otherKey())
                 : $this->otherKey();
-            $body .= ', '.Dumper::export($otherKey);
+            $body .= ', ' . Dumper::export($otherKey);
         }
 
         $body .= ')';
@@ -100,10 +111,10 @@ class BelongsTo implements Relation
             // or a composite unique key. Otherwise it should be a has-many relationship which is not
             // supported at the moment. @todo: Improve relationship resolution.
             foreach ($this->command->references as $index => $column) {
-                $body .= "\n\t\t\t\t\t->where(".
-                    Dumper::export($this->qualifiedOtherKey($index)).
-                    ", '=', ".
-                    Dumper::export($this->qualifiedForeignKey($index)).
+                $body .= "\n\t\t\t\t\t->where(" .
+                    Dumper::export($this->qualifiedOtherKey($index)) .
+                    ", '=', " .
+                    Dumper::export($this->qualifiedForeignKey($index)) .
                     ')';
             }
         }
@@ -118,7 +129,7 @@ class BelongsTo implements Relation
      */
     public function hint()
     {
-        $base =  $this->related->getQualifiedUserClassName();
+        $base = $this->related->getQualifiedUserClassName();
 
         if ($this->isNullable()) {
             $base .= '|null';
@@ -165,7 +176,7 @@ class BelongsTo implements Relation
      */
     protected function qualifiedForeignKey($index = 0)
     {
-        return $this->parent->getTable().'.'.$this->foreignKey($index);
+        return $this->parent->getTable() . '.' . $this->foreignKey($index);
     }
 
     /**
@@ -199,7 +210,7 @@ class BelongsTo implements Relation
      */
     protected function qualifiedOtherKey($index = 0)
     {
-        return $this->related->getTable().'.'.$this->otherKey($index);
+        return $this->related->getTable() . '.' . $this->otherKey($index);
     }
 
     /**
@@ -217,6 +228,6 @@ class BelongsTo implements Relation
      */
     private function isNullable()
     {
-        return (bool) $this->parent->getBlueprint()->column($this->foreignKey())->get('nullable');
+        return (bool)$this->parent->getBlueprint()->column($this->foreignKey())->get('nullable');
     }
 }
