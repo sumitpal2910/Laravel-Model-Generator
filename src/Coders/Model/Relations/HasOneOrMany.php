@@ -70,8 +70,8 @@ abstract class HasOneOrMany implements Relation
         }
 
         if ($this->needsLocalKey()) {
-            $localKey = $this->related->usesPropertyConstants()
-                ? $this->related->getQualifiedUserClassName().'::'.strtoupper($this->localKey())
+            $localKey = $this->parent->usesPropertyConstants()
+                ? $this->parent->getQualifiedUserClassName().'::'.strtoupper($this->localKey())
                 : $this->localKey();
             $body .= ', '.Dumper::export($localKey);
         }
