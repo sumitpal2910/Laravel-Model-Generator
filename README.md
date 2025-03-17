@@ -13,14 +13,14 @@ to automatically generate Models that have correctly typed properties, along wit
 ## How does it work?
 
 This package expects that you are using Laravel 5.1 or above.
-You will need to import the `reliese/laravel` package via composer:
+You will need to import the `goparkk/model-generator` package via composer:
 
 ### Configuration
 
 It is recommended that this package should only be used on a local environment for security reasons. You should install it via composer using the --dev option like this:
 
 ```shell
-composer require reliese/laravel --dev
+composer require goparkk/model-generator --dev
 ```
 
 Add the `models.php` configuration file to your `config` directory and clear the config cache:
@@ -41,6 +41,15 @@ php artisan config:clear
 Assuming you have already configured your database, you are now all set to go.
 
 - Let's scaffold some of your models from your default connection.
+
+Add this code to composer repositories
+
+```shell
+"repositories":[{
+  "type":"vcs",
+  "url":"https://github.com/sumitpal2910/Laravel-Model-Generator"
+}]
+```
 
 ```shell
 php artisan code:models
