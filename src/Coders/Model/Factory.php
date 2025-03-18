@@ -429,8 +429,8 @@ class Factory
         // When table is not plural, append the table name
         if ($model->needsTableName()) {
             $body .= $this->class->field('table', $model->getTableForQuery());
-            $body .= $this->class->constant('TABLE_NAME', $model->getTableForQuery());
         }
+
 
         if ($model->hasCustomPrimaryKey()) {
             $body .= $this->class->field('primaryKey', $model->getPrimaryKey());
@@ -478,6 +478,10 @@ class Factory
         if ($model->hasHints() && $model->usesHints()) {
             $body .= $this->class->field('hints', $model->getHints(), ['before' => "\n"]);
         }
+
+        // Add table name as a constants
+        $body .= $this->class->constant('TABLE_NAME', $model->getTableForQuery());
+
 
         foreach ($model->getMutations() as $mutation) {
             $body .= $this->class->method($mutation->name(), $mutation->body(), ['before' => "\n"]);
