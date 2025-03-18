@@ -429,6 +429,7 @@ class Factory
         // When table is not plural, append the table name
         if ($model->needsTableName()) {
             $body .= $this->class->field('table', $model->getTableForQuery());
+            $body .= $this->class->constant('TABLE_NAME', $model->getTableForQuery());
         }
 
         if ($model->hasCustomPrimaryKey()) {
